@@ -11,6 +11,7 @@ var sessions = make(map[string]*websocket.Conn)
 var upgrader = websocket.Upgrader{ CheckOrigin: func(r *http.Request) bool { return true } }
 
 func handleConnection(w http.ResponseWriter, r *http.Request) {
+    fmt.Print("\n\n --> Inside handle connection")
     conn, _ := upgrader.Upgrade(w, r, nil)
     defer conn.Close()
     
